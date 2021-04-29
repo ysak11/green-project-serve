@@ -30,6 +30,22 @@ router.get('/user', (req, res) => {
   }
 })
 
+//用用户id查询用户信息的路由
+router.post('/user/id', (req, res) => {
+  const {userId} = req.body;
+  UserModel.findOne({_id: userId}, filter)
+  .then(user => {
+    //如果user存在，则有该用户
+    if(user) {
+      console.log('查询到用户', user.username);
+      res.send({status: 0, data: user})
+    } else {
+      //没有找到该用户，返回错误信息，状态码为1
+      res.send({status: 1, msg: '用户名或密码不正确'});
+    }
+  })
+})
+
 //登录的路由
 router.post('/user/login', (req, res) => {
   const {username, password, isCookie} = req.body;
