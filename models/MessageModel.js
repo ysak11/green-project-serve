@@ -12,6 +12,8 @@ const MessageSchema = new mongoose.Schema({
   areaName: {type: String, require: true},
   //职工名
   workerName: {type: String},
+  //图片
+  imgs: {type: Array}
 })
 
 //定义Model(与集合对应, 可以操作集合)

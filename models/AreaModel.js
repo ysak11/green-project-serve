@@ -21,7 +21,7 @@ const AreaSchema = new mongoose.Schema({
   //用户评论
   comment: {type: Array, default: []},
   //待处理问题
-  question: {type: Array, default: []},
+  //question: {type: Array, default: []},
   // 图片的路径
   imgPath: {type: String, default: ''},
 })

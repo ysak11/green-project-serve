@@ -7,7 +7,8 @@ const mainRouter = require('./routes/index');
 const AreaRouter = require('./routes/area');
 const RatioRouter = require('./routes/ratio');
 const FileRouter = require('./routes/upload');
-const MessageRouter = require('./routes/message')
+const MessageRouter = require('./routes/message');
+const DeviceRouter = require('./routes/device');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/', AreaRouter);
 app.use('/', RatioRouter);
 app.use('/', FileRouter);
 app.use('/', MessageRouter);
+app.use('/', DeviceRouter);
 
 // 设置静态文件目录
 app.use('/public', express.static('public'));
