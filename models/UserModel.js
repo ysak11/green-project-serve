@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   username: {type: String, required: true}, // 用户名
   password: {type: String, required: true}, // 密码
   permission: {type: String, required: true}, // 用户权限 1用户 2职工 3管理员
-  status: {type: String, default: "free"}
+  status: {type: String, default: "free"},    //状态，是否在处理任务
+  solveId: {type: String, default: ''}      //正在处理的任务的id
 })
 // 3. 定义Model(与集合对应, 可以操作集合)
 const UserModel = mongoose.model('users', userSchema)

@@ -178,5 +178,19 @@ router.post('/user/delete', (req, res) => {
   // })
 })
 
+//更新用户状态
+router.post('/user/update', (req, res) => {
+  //传送过来的直接是用户数据对象
+  const user = req.body;
+  UserModel.updateOne({_id: user._id}, user)
+  .then(data => {
+    res.send({status: 0, data});
+  })
+  .catch(error => {
+    console.error('更新用户异常', error);
+    res.send({status: 1, msg: '更新用户异常, 请重新尝试'});
+  })
+})
+
 
 module.exports = router;
